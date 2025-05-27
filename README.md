@@ -2,9 +2,56 @@
 
 ## Best Generated / Representative image from Diffusion Model
 
-![Best Generated Images](assets/img/generated_images.png)
-
 > **Learnings**: I could not get actual graphical designs to be generated from that tattoo dataset. The image dataset did not contain enough images (currently at ~4.24K images) and varied considerably from image to image in terms of color, design, shapes, etc.
+
+The proposal for my Text Generation project is as follows:
+
+```
+1. Title
+ConvoBot: An AI-Powered Conversation Starter Generator
+2. Text Data Source
+Dataset: Langame/conversation-starters from Hugging Face (17,470 conversation prompts)
+Nature of the Problem:
+This dataset contains conversation starters categorized by topics (video games, science, relationships, philosophy, etc.) with varying complexity levels from ice breakers to deep philosophical discussions. The challenge is to generate contextually appropriate, engaging conversation starters that match specific topics or social situations. This addresses the real-world problem of social anxiety and difficulty initiating meaningful conversations.
+Data Characteristics:
+	•	17,470 diverse prompts with topic tags
+	•	Wide range of conversation depths (casual to profound)
+	•	Multiple topic categories for targeted generation
+	•	Varying prompt lengths and complexity
+3. Model Architecture(s)
+Primary Approach: Fine-tune a pre-trained transformer model (GPT-2 or T5)
+	•	GPT-2 Medium/Large: For autoregressive generation of conversation starters
+	•	T5-Base: For conditional generation based on topic inputs
+```
+
+The data from Dataset loading and exploration appears as such:
+
+```
+/usr/local/lib/python3.11/dist-packages/huggingface_hub/utils/_auth.py:94: UserWarning:
+The secret `HF_TOKEN` does not exist in your Colab secrets.
+To authenticate with the Hugging Face Hub, create a token in your settings tab (https://huggingface.co/settings/tokens), set it as secret in your Google Colab and restart your session.
+You will be able to reuse this secret in all of your notebooks.
+Please note that authentication is recommended but still optional to access public models or datasets.
+  warnings.warn(
+Dataset structure:
+DatasetDict({
+    train: Dataset({
+        features: ['topics', 'prompt'],
+        num_rows: 17470
+    })
+})
+
+First few examples:
+{'topics': [['video games'], ['science'], ['relationship'], ['personal', 'relationship', 'relationships', 'social', 'big talk', 'personal growth'], ['transhumanism', 'fun']], 'prompt': ['What was the most difficult aspect of mastering a video game?', 'What scientific or intellectual studies do you think would increase substantially if more people contributed around them?', 'What would you do if your partner disappeared?', 'Give eachother four praises and one critique', 'If a sufficiently advanced robot were to take your place in society and have children with a sufficiently advanced robot, would the children have any advantages over you?']}
+
+Column names: ['topics', 'prompt']
+
+Dataset size: 17470
+```
+
+Things to think about: "Interesting idea! Will the model be trained to generate similar-style starters, or context-aware responses based on an input topic? And will the training be conditioned on context like domain (gaming, dating, etc.)? Consider these two question during implementation. Looking forward to seeing your work."
+
+Walk me through step-by-step how I would fine-tune GPT-2 on this dataset to execute core functions. I want to do this within a Google Collab notebook. We can leave out extra criteria for now. I will prompt you with "next" when ready to proceed to the next step.
 
 ## Business Goal / Case Statement
 
