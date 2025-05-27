@@ -1,0 +1,5 @@
+transformers>=4.25.0                # For GPT-2 model and tokenizer
+datasets>=2.10.0                    # For loading and processing the Hugging Face dataset
+torch>=2.0.0                        # PyTorch for training
+accelerate>=0.10.0                  # For distributed training optimization
+fsspec==2023.9.2                    # For file system specification
